@@ -20,3 +20,27 @@ class ReverseStringTool(BaseTool):
         input_value = params["values"].get("input")
 
         return TextArtifact(input_value[::-1])
+
+    @activity(
+        config={
+            "description": "Can be used to reverse words in a sentence",
+            "schema": Schema(
+                {Literal("input", description="The sentence to be reversed"): str}
+            ),
+        }
+    )
+    def reverse_sentence(self, params: dict) -> TextArtifact | ErrorArtifact:
+        input_value = params["values"].get("input")
+        return TextArtifact(" ".join(input_value.split()[::-1]))
+
+    @activity(
+        config={
+            "description": "Can be used to reverse each word in a sentence without reversing the whole sentence.",
+            "schema": Schema(
+                {Literal("input", description="The sentence to be reversed"): str}
+            ),
+        }
+    )
+    def reverse_each_word(self, params: dict) -> TextArtifact | ErrorArtifact:
+        input_value = params["values"].get("input")
+        return TextArtifact(" ".join([word[::-1] for word in input_value.split()]))
