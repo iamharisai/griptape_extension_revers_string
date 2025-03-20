@@ -133,12 +133,12 @@ Extensions are designed to be shared. Extensions are made to easily install into
 
 The easiest way to include your extension into an existing project is to install directly from the repository, like so:
 ```bash
-poetry add git+https://github.com/{your-org}/{your-extension-name}.git
+poetry add git+https://github.com/iamharisai/griptape_extension_reverse_string.git
 ```
 
 To install a local copy of the extension for development, run:
 ```bash
-poetry add -e /path/to/your/extension
+poetry add -e /griptape/extension_name
 ```
 
 Any changes made to the extension will be automatically reflected in the project without needing to reinstall it.
